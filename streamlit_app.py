@@ -1,21 +1,31 @@
 import io
+import pathlib
+
 import streamlit as st
 from pydub import AudioSegment
 
+filename = None
 filestream = io.BytesIO()
+
+st.title('MP3 to WAV Converter test app')
+
 uploaded_mp3_file = st.file_uploader('Upload Your MP3 File', type=['mp3'])
 
 if uploaded_mp3_file:
-    if len(uploaded_mp3_file.getvalue()) > 0:
-        st.text(f'uploaded_mp3_file: {len(uploaded_mp3_file.getvalue())} bytes')
-        # do some processing here with the mp3 file
+    uploaded_mp3_file_length = len(uploaded_mp3_file.getvalue())
+    if uploaded_mp3_file_length > 0:
+        st.text(f'Size of uploaded mp3 file: {uploaded_mp3_file_length} bytes')
+        # do some more processing here with the mp3 file(?)
         song = AudioSegment.from_mp3(uploaded_mp3_file)
         handler = song.export(filestream, format="wav")
+        filename = pathlib.Path(uploaded_mp3_file.name).stem
 
-if filestream:
-    if len(filestream.getvalue()) > 0:
+if filestream and filename:
+    content = filestream.getvalue()
+    length = len(content)
+    if length > 0:
         st.download_button(label="Download wav file",
-                data=filestream.getvalue(),
-                file_name="newaudio.wav",
+                data=content,
+                file_name=f'{filename}.wav',
                 mime='audio/wav')
-        st.text(f'filestream: {len(filestream.getvalue())} bytes')
+        st.text(f'Size of "{filename}.wav" file to download: {length} bytes')
