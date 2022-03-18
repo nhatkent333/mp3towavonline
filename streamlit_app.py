@@ -9,6 +9,12 @@ filestream = io.BytesIO()
 
 st.title('MP3 to WAV Converter test app')
 
+st.markdown("""This is a quick example app for `pydub` on Streamlit Cloud.
+There are some issues with `ffmpeg` and `pydub` on Streamlit Cloud.
+Quick fix is to use `libav` instead of `ffmpeg` in `packages.txt` file.
+Pydub prefers `libav` over `ffmpeg` if it is installed.
+This example app uses `libav`.""")
+
 uploaded_mp3_file = st.file_uploader('Upload Your MP3 File', type=['mp3'])
 
 if uploaded_mp3_file:
