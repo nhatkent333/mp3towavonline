@@ -20,9 +20,9 @@ if uploaded_mp3_file:
     uploaded_mp3_file_length = len(uploaded_mp3_file.getvalue())
     if uploaded_mp3_file_length > 0:
         st.text(f'Size of uploaded mp3 file: {uploaded_mp3_file_length} bytes')
+        audio_segment = AudioSegment.from_mp3(uploaded_mp3_file)
         # do some more processing here with the mp3 file(?)
-        song = AudioSegment.from_mp3(uploaded_mp3_file)
-        handler = song.export(filestream, format="wav")
+        handler = audio_segment.export(filestream, format="wav")  # handler not needed
         filename = pathlib.Path(uploaded_mp3_file.name).stem
 
 if filestream and filename:
