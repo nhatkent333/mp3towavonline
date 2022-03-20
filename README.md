@@ -1,6 +1,8 @@
 # Streamlit Pydub Test
 
-Streamlit App for testing Pydub on Streamlit Cloud.
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/franky1/streamlit-pydub-test/main)
+
+Streamlit App for testing **pydub** on Streamlit Cloud.
 
 ## Issues
 
@@ -11,6 +13,5 @@ Pydub prefers `libav` over `ffmpeg` if it is installed.
 ## Status
 
 This is just a quick example project to test Pydub on Streamlit Cloud.
-Further improvement would be to make it also work with `ffmpeg`.
 
-> Last changes: 18.03.2022
+> Last changes: 20.03.2022
