@@ -1,2 +1,1 @@
-libavcodec-dev
-libavcodec-extra
+ffmpeg
