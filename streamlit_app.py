@@ -7,7 +7,7 @@ from pydub import AudioSegment
 filename = None
 filestream = io.BytesIO()
 
-st.title('Chuyển đổi file MP3 sang WAV online')
+st.title('Chuyển đổi MP3 sang WAV online')
 
 st.markdown("""Công cụ chuyển đổi file MP3 sang WAV online. Thuộc dự án 1001 công cụ online [ViecLamVui.com](https://vieclamvui.com/ "tìm việc làm, tuyển dụng miễn phí") hỗ trợ cho hơn 100 ngành nghề.""")
 
